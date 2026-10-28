@@ -18,4 +18,6 @@ public class StudentResponseDTO {
     private boolean approved;
     private String dateOfBirth;
     private StudentStatus Status;
+    private int Semester;
+
 }

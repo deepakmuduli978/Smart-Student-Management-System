@@ -4,7 +4,12 @@ import com.example.students.Dto.StudentRequestDTO;
 import com.example.students.Dto.StudentResponseDTO;
 import com.example.students.Entity.Student;
 import com.example.students.Repository.StudentRepository;
+import org.apache.catalina.LifecycleState;
 import org.springframework.stereotype.Service;
+
+import java.lang.classfile.Opcode;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService{
@@ -62,5 +67,12 @@ public class StudentService{
                         );
 
         return mapper.entityToDto(student);
+    }
+    public List<StudentResponseDTO> getAllStudent(){
+        List<Student> student;
+        student = repository
+                .findAll();
+        return mapper.entityToDtolist(student);
+
     }
 }

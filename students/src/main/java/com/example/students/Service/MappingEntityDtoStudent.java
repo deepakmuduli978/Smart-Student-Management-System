@@ -5,6 +5,9 @@ import com.example.students.Dto.StudentResponseDTO;
 import com.example.students.Entity.Student;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class MappingEntityDtoStudent{
 
@@ -47,4 +50,23 @@ public class MappingEntityDtoStudent{
 
         return dto;
 }
+    public List<StudentResponseDTO> entityToDtolist(List<Student> std){
+        List<StudentResponseDTO> srdto=new ArrayList<>();
+        for(Student student:std) {
+            StudentResponseDTO dto=new StudentResponseDTO();
+            dto.setId((int) student.getId());
+            dto.setName(student.getName());
+            dto.setEmail(student.getEmail());
+            dto.setRollNo(student.getRollNo());
+            dto.setDepartment(student.getDepartment());
+            dto.setDateOfBirth(student.getDateOfBirth());
+            dto.setCourse(student.getCourse());
+            dto.setStatus(student.getStatus());
+            dto.setSemester(student.getSemester() != null ? student.getSemester() : 0);
+            dto.setPhone(student.getPhone());
+            dto.setStatus(student.getStatus());
+            srdto.add(dto);
+        }
+        return srdto;
+    }
 }
